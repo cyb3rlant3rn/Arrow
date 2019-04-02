@@ -45,7 +45,7 @@ def  xssdetection():
 
 def main():
 	print " Cyb3rlant3rn here to help!!!!!!!!!!!!!!!!!!!!!!! "	
-	print "  _________	
+	print "  _________	"
 	print "  \/    \/                         "
 	print "  /\    /\                        "
 	print "    \  /                           "
