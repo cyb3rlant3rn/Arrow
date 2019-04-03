@@ -17,7 +17,25 @@ def sendingreq(i):
 				print "[-]Not found "+j
 	except:
 		print "Unexpected error in"+i
-	
+def sstidetection():
+	obj1=open('url.txt','r')
+	for i in obj1.readlines():
+		i=i.strip('\n')
+		ru=i+"{25*25}"
+		req=requests.get(ru)
+		var="625"
+		if var in req.text:
+			print "vulnerable to ssti"
+			print "Template engine might be Smart or Mako"
+		else:
+			ru=i+"{{25*25}}"
+			req=requests.get(ru)
+			if var in req.text:
+				print "Vulnerable to SSTI"
+				print "Templete engine might be Jinja2 or Twig"
+			else:
+				print "Not vulnerable"
+
 	
 	
 
@@ -56,8 +74,11 @@ def main():
 			sendingreq(i)
 	elif choice=='2': 
 		xssdetection()
+	elif choice=='3':
+		sstidetection()
 	else:
-		print "Please enter either 1 or 2"
+		print "Please enter either 1,2 or 3"
+		
 		
 main()
 
