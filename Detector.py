@@ -44,13 +44,8 @@ def  xssdetection():
 
 
 def main():
-	print " Cyb3rlant3rn here to help!!!!!!!!!!!!!!!!!!!!!!! "	
-	print "  _________	"
-	print "  \/    \/                         "
-	print "  /\    /\                        "
-	print "    \  /                           "
-	print "     \/                           "
 	
+	print " Cyb3rlant3rn here to help!!!!!!!!!!!!!!!!!!!!!!! "	
 	print "[1] Source code analzing"
 	print "[2] XSS finder"
 	choice=raw_input("choice?")	
