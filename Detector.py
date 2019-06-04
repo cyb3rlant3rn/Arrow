@@ -1,6 +1,9 @@
 import requests
+from optparse import OptionParser
 
 
+urlfile=""
+payload=""
 
 
 def sendingreq(i):
@@ -40,10 +43,9 @@ def sstidetection():
 	
 
 		 
-def  xssdetection():
+def  xssdetection(obj1,obj2):
 	f=0
-	obj1=open('payload.txt','r')
-	obj2=open('url.txt','r')
+	
 	for i in obj2.readlines():
 		i=i.strip('\n')
 		for j in obj1.readlines():
@@ -62,18 +64,29 @@ def  xssdetection():
 
 
 def main():
+	parser = OptionParser(usage=" -p <payload> -u <URL> -U <file of urls> ")
+	parser.add_option("-p" , dest="payload", help="payload file",metavar="FILE")
+	parser.add_option("-u",  dest="url" , help="just place url")
+	parser.add_option("-U", dest="urlfile" , help="file containing urls",metavar="FILE")
+	(options, args) = parser.parse_args()
+	payload=options.payload
+	urlfile=options.urlfile
 	
+
 	print " Cyb3rlant3rn here to help!!!!!!!!!!!!!!!!!!!!!!! "	
 	print "[1] Source code analzing"
 	print "[2] XSS finder"
+	print "[3] SSTI"
 	choice=raw_input("choice?")	
 	if choice == '1':
-		filep=open("url.txt",'r')
+		filep=open("urlfile",'r')
 		for i in filep.readlines():
 			i=i.strip('\n')
 			sendingreq(i)
 	elif choice=='2': 
-		xssdetection()
+		obj1=open(payload)
+		obj2=open(urlfile)
+		xssdetection(obj1,obj2)
 	elif choice=='3':
 		sstidetection()
 	else:
@@ -81,4 +94,3 @@ def main():
 		
 		
 main()
-
