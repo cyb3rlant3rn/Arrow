@@ -38,6 +38,23 @@ def sstidetection():
 				print "Templete engine might be Jinja2 or Twig"
 			else:
 				print "Not vulnerable"
+def httpdetection():
+ 	obj1=open('url.txt','r')
+	print "url                                     http/not http       status code"
+	for i in obj1.readlines():
+		i=i.strip('\n')
+		ru="http://"+i
+		try:
+			req=requests.get(ru)
+				
+			if( req.history ):
+				print ""
+				print "[-]"+ru+"  "+"not http "+"    "+str(req.status_code)
+			else:
+				print ""
+				print "[+]subdomain found "+ru+" "+str(req.status_code)
+		except:
+			print ru+"  req not possible"
 
 	
 	
@@ -77,6 +94,7 @@ def main():
 	print "[1] Source code analzing"
 	print "[2] XSS finder"
 	print "[3] SSTI"
+	print "[4] Check fot http"
 	choice=raw_input("choice?")	
 	if choice == '1':
 		filep=open("urlfile",'r')
@@ -89,7 +107,8 @@ def main():
 		xssdetection(obj1,obj2)
 	elif choice=='3':
 		sstidetection()
-	else:
+	elif choice=='4':
+		httpdetection()
 		print "Please enter either 1,2 or 3"
 		
 		
