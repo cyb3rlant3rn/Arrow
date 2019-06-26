@@ -5,4 +5,3 @@ Simple command to run-->"python Detector.py -p payload.txt -U url.txt".
 Url.txt can contain list of subdomains and urls.
 x-special/nautilus-clipboard
 
-![alt text](file:///root/Pictures/Screenshot%20from%20Screencast_06-26-2019_02:30:27%20AM.webm.png)
